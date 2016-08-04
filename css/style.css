@@ -1,0 +1,599 @@
+/*General CSS*/
+body{
+	font-size:16px;
+}
+p {
+    margin:0;
+}
+a {
+    text-decoration:none;
+}
+body{
+    text-align:center;
+    line-height:1.2;
+	position:relative;
+}
+.container {
+    width:960px;    
+    padding:0;
+    box-sizing: border-box;
+}
+.overlay{
+	background: rgba(0,0,0,0.3);
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+/*Header CSS start*/
+
+/*fixed header start*/
+/* header{
+	    position: fixed;
+    width: 100%;
+    background: white;
+    top: 0;
+    z-index: 11111;
+} */
+/*fixed header end*/
+header{
+    padding:30px 0px 30px ;
+}
+header .logo-wrapper img{
+    margin:0 auto;
+}
+header .navigation-menu-wrapper{
+    margin-top:50px;
+}
+header .navigation-menu-wrapper ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+header .navigation-menu-wrapper ul li{
+    width:33.33%;
+    float:left;
+}
+.nav-link-wrapper a{
+    color:black;
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:16px;
+}
+.nav-link-wrapper a i{
+    color: rgb(198,48,94);
+    font-size:20px;
+}
+/*Header CSS end*/
+
+/*Footer CSS start*/
+footer{
+    text-align:left;
+}
+footer .container>div{
+    margin-top:40px;
+}
+footer .container>div:last-child{
+    margin-top:50px;
+}
+footer .safety-info{
+    color:rgb(198,48,94);
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.footer-part-3 ul{
+    counter-reset: item;
+    list-style-type: none;
+    padding:0;
+}
+
+
+.footer-part-3 ul li:before { 
+    content: counter(item) "  "; 
+    counter-increment: item ;
+	
+}
+footer .osurnia-logo{
+    float:left;
+}
+footer .elanco-logo{
+    float:right;
+}
+/*Footer CSS End*/
+
+/*Section CSS General Start*/
+
+.pink-background{
+	background:#c6305e;	
+}
+.grey-background{
+background-image: -ms-linear-gradient(top, #9E9E9E 0%, #eaeaea 100%);
+
+background-image: -moz-linear-gradient(top, #9E9E9E 0%, #eaeaea 100%);
+
+background-image: -o-linear-gradient(top, #9E9E9E 0%, #eaeaea 100%);
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #9E9E9E), color-stop(100, #eaeaea));
+
+background-image: -webkit-linear-gradient(top, #9E9E9E 0%, #eaeaea 100%);
+
+background-image: linear-gradient(to bottom, #9E9E9E 0%, #eaeaea 100%);
+
+}
+.curved-box{
+	display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: black;
+    padding: 11px 30px;
+    border-top-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+	margin-bottom:40px;
+}
+.white-background{
+	background:white;
+	color:black;
+}
+.section-main-text{
+	color:white;
+	font-size:30px;
+	font-weight:bold;
+}
+.section-sub-text{
+	margin-top:30px;
+}
+/*Section CSS General End*/
+
+
+/*gel-section CSS Start */
+
+/*for fixed-header*/
+
+/* .gel-section{
+	margin-top:216px;
+} */
+/*for fixed-header end*/
+
+.gel-section{
+	color:white;
+}
+.of-heading{
+    padding: 70px 71px;
+    color: white;
+    font-size: 42px;
+	font-weight:bold;
+}
+.features{
+    text-align: left;
+    width: 50%;
+    float: right;
+	font-weight:bold;
+	font-size:18px;
+}
+.features p{
+	font-size:19px;
+}
+.features ul{
+	list-style:none;
+	margin:0;
+    padding-right: 84px;
+}
+.features ul li:before{
+	 content: '';
+    height: 5px;
+    width: 5px;
+    background: black;
+    display: block;
+    transform: rotate(45deg);
+    position: relative;
+    left: -22px;
+    top: 15px;
+}
+.features p, .features li, .features img{
+	padding-bottom:40px;
+}
+/*gel-section CSS End */
+
+/*signs-symptoms section start*/
+.signs-and-symptoms,.ask-vet,.for-vet{
+	padding:50px 0;	
+	
+}
+.symptom-box{
+	background:white;
+	margin-top:52px;	
+    font-weight: bold;
+}
+.symptom-number{
+    position: relative;
+    top: -28px;
+}
+.symptom-number span{
+	display: inline-block;
+    width: 65px;
+    background: #c6305e;
+    padding: 10px 0;
+    color: white;
+    font-size: 30px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.symptom-text{
+	    padding: 2px 0px 50px;
+		font-size:22px;
+}
+.symptoms-bottom-head{
+	padding: 56px 214px 28px;
+    font-size: 30px;
+	font-weight:bold;
+	color:#bf305b;
+}
+.bottom-text{
+	margin-bottom:40px;
+}
+.canine-link{
+	    color: #bf305b;
+    text-transform: uppercase;
+    font-weight: bold;
+	text-decoration:underline;
+}
+
+/* ask-vet CSS Start*/
+.ask-vet{
+	font-weight:bold;
+	z-index:5;
+	position:relative;
+}
+.summary-form{
+	margin-top: 40px;
+    color: white;
+}
+.dropdown-container{
+	margin-top:40px;
+}
+.dropdown-list{
+	margin:0px 0px 25px;
+	font-size:14px;	
+}
+.dropdown-container select{
+margin: 0 13px;
+    padding: 12px 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: 0;
+    border-radius: 8px; 
+	color:#aaaaaa;
+}
+select.year-list {
+    width: 150px;
+}
+select.day-list {
+    width: 105px;
+}
+select.month-list {
+    width: 170px;
+}
+.add-more-occurences{
+	text-decoration:underline;
+	text-transform:uppercase;
+	color:black;
+	font-weight:bold;
+	cursor:pointer;
+}
+.infection-number,.signs-select-list,.seasons-select-list{
+	margin-top:40px;
+}
+.infection-number select{
+	width:485px;
+	}
+	.select-list{
+		margin-top:30px;
+		padding:0 50px;
+	}
+	.chkbox-container{
+		float:left;
+		width:33.33%;
+		margin-bottom:40px;
+	}
+	.chkbox-container img{
+		vertical-align:top;
+	}
+	.chkbox-container p{
+    display: inline-block;
+    margin-left: 10px;
+	color:black;	
+    text-align: left;
+	width:62%;
+	}
+	.submit-container{
+		text-transform:uppercase;
+		text-decoration:underline;
+		color:black;
+	}
+	.submit-container span{
+		cursor:pointer;
+	}
+
+	.form-summary{
+		background: white;
+		padding: 50px 0;
+		font-weight:normal;
+		font-size:16px;
+		margin-top: 40px;
+		display:none;
+	}
+	.summary-head{
+		font-size:24px;
+		font-weight: bold;
+	}
+	.diamond-symbol{
+		padding:20px 0;
+		color:#c6305e;
+	}
+	.summary-links{
+		padding: 30px 30% 0px 30%;
+	}
+	.summary-links a{
+		text-transform: uppercase;
+		color:#c6305e;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	.summary-links .email{
+		float:left;
+	}
+	.summary-links .print{
+		float:right;
+	}
+	.sum-symptoms,.sum-dates{
+		padding:0 15%;
+	}
+/* ask-vet CSS End*/
+/* for vet CSS Start */
+.product-otic-image{
+	padding: 40px 0;
+	margin:0 auto;
+}
+.features-benefits-container{
+	text-align:left;
+}
+.features-benefits-container>div{
+	width:50%;
+	float:left;
+	padding: 0px 20px;
+}
+.fb-heading{
+	font-weight:bold;
+	text-transform:capitalize;
+	font-size:24px;
+}
+.features-benefits-container ul{
+	padding:16px 60px 16px 16px;
+	margin:0;
+	color:white;	
+}
+.features-benefits-container ul li{
+	margin-bottom: 40px;
+}
+.features-benefits-container ul li span{
+	color:black;
+}
+.color-pink{
+	color:#bf305b;
+}
+.for-vet figure img{
+	margin:40px auto 20px;
+}
+.for-vet figure figcaption{
+	    text-align: left;
+    padding: 0px 135px;
+}
+/*Rsponsive CSS for Mobiles*/
+@media screen and (max-width:768px){
+	body {
+    	font-size: 15px;
+	}
+    .container{
+        width:100%;
+        padding:0 15px;
+    }
+    .nav-link-wrapper a{       
+        font-size:12px;
+    }
+	.of-heading {
+	    padding: 50px 0px;
+		font-size:30px;
+	}
+	.features{
+		width:75%;
+	}
+	.features span{
+		font-size:9px;
+	}
+	.features ul{
+		padding-right:0px;
+	}
+	.symptoms-bottom-head{
+		padding: 56px 0px 28px;
+	}
+	.footer-part-5 .osurnia-logo{
+		width: 175px;
+		height: 40px;
+	}
+	.footer-part-5 .elanco-logo{
+		width: 100px;
+		height: 42px;
+	}
+	.footer-part-3 ul li{
+		padding-left:15px;
+	}
+	.footer-part-3 ul li:before { 
+		display: block;
+		position: absolute;
+		left: 14px;	
+	}
+	footer .container > div {
+		margin-top: 30px;
+	}
+	footer .container > div:last-child {
+		margin-top: 40px;
+	}
+	.features p, .features li, .features img {
+		padding-bottom: 30px;
+	}
+	.signs-and-symptoms, .ask-vet, .for-vet{
+		padding:40px 0;
+	}
+	.section-main-text {
+		color: white;
+		font-size: 25px;
+		font-weight: bold;
+	}
+	.symptom-text {
+		padding: 2px 10px 50px;
+	}
+	.symptom-number {
+		top: -22px;
+	}
+	.symptom-number span {   
+		width: 44px;
+		padding: 4px 0;
+		border-top-right-radius: 18px;
+		border-bottom-left-radius: 18px;
+	}
+	.symptoms-bottom-head {
+		padding: 56px 16px 28px;
+	}
+	.symptoms-bottom-head{
+		font-size:25px;
+	}
+	select.year-list,select.month-list {
+		width: 100px;
+	}
+	select.day-list {
+		width: 60px;
+	}
+	.dropdown-container select{
+		margin: 0px 2px;
+padding: 10px 15px;
+	}
+	.curved-box,.summary-form{
+		margin-bottom:30px;
+	}
+	.infection-number select {
+    width: 96%;
+}
+.select-list {
+    margin-top: 30px;
+    padding: 0 ;
+}
+.chkbox-container {
+    width: 50%;
+    margin-bottom: 20px;
+    min-height: 58px;
+}
+.chkbox-container p {
+    margin-left: 0px;
+    width: 83%;
+}
+.features-benefits-container > div {
+    width: 100%;
+    float: left;
+    padding: 0px 20px;
+}
+.features-benefits-container ul {
+    padding: 16px;
+}
+.features-benefits-container ul li {
+    margin-bottom: 30px;
+}
+.for-vet figure figcaption {
+	padding:0;
+}
+.color-pink {
+    color: #bf305b;
+}
+.summary-links{
+	padding:30px 0px 0px;
+	font-size: 15px;
+}
+.form-summary {
+    padding: 50px 10px;
+  }
+  .sum-symptoms, .sum-dates {
+    padding: 0 5%;
+}
+}
+@media screen and (max-width: 768px) and (orientation:landscape){
+	.summary-links {
+    	padding: 30px 15% 0px;
+	}
+}
+/*Responsive CSS for IPAD*/
+
+@media screen and (min-width:768px) and (max-width:992px){
+    .container{
+        width:750px;
+    }
+	.of-heading {
+	    padding: 70px 45px;
+	}
+	.features ul{
+		padding-right:45px;
+	}
+	.nav-link-wrapper a {
+		font-size: 16px;
+	}
+	.symptoms-bottom-head {
+		padding: 56px 0px 28px;
+	}
+	.symptoms-bottom-head{
+		font-size:30px;
+	}
+	.signs-and-symptoms, .ask-vet, .for-vet{
+		padding:50px 0;
+	}
+		.chkbox-container {
+    width: 33.33%;
+    margin-bottom: 40px;
+    min-height: 0px;
+}
+.chkbox-container p {
+    margin-left: 10px;
+    width: 62%;
+}
+.features-benefits-container > div {
+    width: 50%;   
+}
+.features-benefits-container ul {
+    padding: 16px 60px 16px 16px;   
+}
+.features-benefits-container ul li {
+    margin-bottom: 40px;
+}
+select.year-list {
+    width: 150px;
+}
+select.day-list {
+    width: 105px;
+}
+select.month-list {
+    width: 170px;
+}
+.for-vet figure figcaption {
+    padding: 0 17px;
+}
+.summary-links{
+		padding: 30px 30% 0px 30%;
+	}
+	.sum-symptoms, .sum-dates {
+    padding: 0 15%;
+}
+}

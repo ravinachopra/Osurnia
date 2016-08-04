@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Osurnia</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->		
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script>
+		$(document).ready(function() {
+			$('.add-more-occurences').click(function(){
+				  $(".dropdown-list:first-child").clone().appendTo(".dropdown-container:first");
+				});
+			$('.nav-link-wrapper a').click(function () {
+				$('html, body').animate({
+					scrollTop: $($(this).attr('href')).offset().top
+				}, 500);
+				return false;
+			});
+			$('.chkbox-container img,.chkbox-container p').click(function(){
+				$(this).parent().toggleClass('optionSelected');				
+			});
+			$('.submit-container span').click(function(){
+				$('.overlay').show();
+				var symptomString="",seasonString="",dateString="";			
+				$('.dropdown-list').each(function(i, obj) {
+					var month=$(obj).find('.month-list').val();
+					var day=$(obj).find('.day-list').val();
+					var year=$(obj).find('.year-list').val();
+					var suffix="", dateArray=[];
+					switch(parseInt(day)) {
+						case 1:
+						case 21:
+						case 31:
+							suffix="st";
+							break;
+						case 2:
+						case 22:
+							suffix="nd";
+							break;
+						case 3:
+						case 23:
+							suffix="rd";
+							break;
+						default:
+							suffix="th";
+					}
+					dateString= dateString+month+' '+ day + suffix+','+' '+year +', ';
+					//dateArray.push(dateString);	
+					
+					
+				});
+				var noOfEarInfections= $('.infection-number select').val();				
+				$('.signs-select-list .optionSelected').each(function(i, obj) {
+					var symptom=$(obj).find('p').text();
+					//symptomArray.push(symptom);
+					symptomString=symptomString + symptom +', ';
+					
+				
+				});
+				$('.seasons-select-list .optionSelected').each(function(i, obj) {
+					var season=$(obj).find('p').text();
+					//seasonArray.push(season);
+					seasonString=seasonString+ season +', ';
+				
+				});
+				 dateString = dateString.substr(0, dateString.length-2);
+				 symptomString=symptomString.substr(0, symptomString.length-2);
+				 symptomString = symptomString.slice( 0, symptomString.lastIndexOf( "," ) ) + " and"  + symptomString.substring( symptomString.lastIndexOf( "," )+1 );
+				 seasonString=seasonString.substr(0, seasonString.length-2);
+				 seasonString = seasonString.slice( 0, seasonString.lastIndexOf( "," ) ) + " and"  + seasonString.substring( seasonString.lastIndexOf( "," )+1 );
+				 console.log(dateString);
+				  console.log(symptomString);
+				   console.log(noOfEarInfections);
+				    console.log(seasonString);
+
+				$('.summary-form').hide();
+				
+
+				$('.sum-dates').text('').text(dateString);
+				$('.sum-symptoms').text('').text(symptomString);
+				$('.sum-infections').text('').text(noOfEarInfections);
+				$('.sum-seasons').text('').text(seasonString);
+
+				$('.form-summary').show();
+				
+
+			});
+		  
+        });
+		
+		
+		
+		</script>
+        	
+	</head>
+	<body>
+	<div class="overlay"></div>
+		<header>
+            <div class="container">
+                <div class="logo-wrapper">
+                    <img src="img/logo.png" class="img-responsive" alt="Osurnia"/>
+                </div><!-- .logo-wrapper end -->
+                <div class="navigation-menu-wrapper clearfix">
+                    <ul>
+                        <li>
+                            <div class="nav-link-wrapper">
+                                <a href="#signs-symptoms">
+                                    <p>Signs & symptoms</p>
+                                    <p><i class="fa fa-caret-down" aria-hidden="true"></i></p>
+                                </a>
+                            </div><!-- .nav-link-wrapper end -->
+                        </li>
+                        <li>
+                            <div class="nav-link-wrapper">
+                                <a href="#ask-vet">
+                                    <p>Ask your veterinarian</p>
+                                    <p><i class="fa fa-caret-down" aria-hidden="true"></i></p>
+                                </a>
+                            </div><!-- .nav-link-wrapper end -->
+                        </li>
+                        <li>
+                            <div class="nav-link-wrapper">
+                                <a href="#for-vet">
+                                    <p>For veterinarians</p>
+                                    <p><i class="fa fa-caret-down" aria-hidden="true"></i></p>
+                                </a>
+                            </div><!-- .nav-link-wrapper end -->
+                        </li>
+                    </ul>
+                </div><!-- .navigation-menu-wrapper end -->
+            </div><!-- .container end -->
+        </header>
+		 <section class="gel-section pink-background">
+        	<div class="container">
+            	<div class="osurnia-features-wrapper">
+                	<div class="of-heading">
+                    	<p>Gel formula for dogs, innovative solution for owners.</p>
+                    </div><!-- .of-heading -->
+                    <div class="features">
+                    	<p class="hidden-xs">OSURNIA<sup>&reg;</sup><small> (florfenicol/terbinafine/betamethasone/acetate)</small>:</p>
+                        <p class="visible-xs">OSURNIA<sup>&reg;</sup><br><span> (florfenicol/terbinafine/betamethasone/acetate):</span></p>
+                        <ul>
+                        	<li>Treats canine ear infections<sup>*</sup> with just two doses per affected ear, given one week apart</li>
+                            <li>Eliminates the need to clean your dog's ear for 45 days</li>
+                            <li>Soft, flexible tip is gentle on a dog's ears</li>
+                            <li>Innovative gel formulation is alcohol-free</li>
+                        </ul>
+                        <img src="" alt="Osurnia Otic Gel Tube"/>
+                    </div><!-- .features end -->
+            	</div><!-- .osurnia-features-wrapper end -->
+            </div><!-- .container end -->
+        </section>  <!-- .gel-section end --> 
+		<section id="signs-symptoms" class="signs-and-symptoms grey-background">
+        	<div class="container">
+            	<p><span class="curved-box">signs & symptoms</span></p>
+                <p class="section-main-text">Ear infections shouldn't be a head scratcher.</p>
+                <div class="symptom-box">
+                	<div class="symptom-number">
+                    	<span>1</span>
+                    </div>
+                    <div class="symptom-text">
+                    	<p>Foul smell or discharge from the ears.</p>
+                    </div>
+                </div><!-- .symptom-box end -->
+                 <div class="symptom-box">
+                	<div class="symptom-number">
+                    	<span>2</span>
+                    </div>
+                    <div class="symptom-text">
+                    	<p>Ear scratching and/or head shaking.</p>
+                    </div>
+                </div><!-- .symptom-box end -->
+                 <div class="symptom-box">
+                	<div class="symptom-number">
+                    	<span>3</span>
+                    </div>
+                    <div class="symptom-text">
+                    	<p>Crusted or scabby skin under the ear flap.</p>
+                    </div>
+                </div><!-- .symptom-box end -->
+                 <div class="symptom-box">
+                	<div class="symptom-number">
+                    	<span>4</span>
+                    </div>
+                    <div class="symptom-text">
+                    	<p>Swelling or redness around the ear.</p>
+                    </div>
+                </div><!-- .symptom-box end -->
+                 <div class="symptom-box">
+                	<div class="symptom-number">
+                    	<span>5</span>
+                    </div>
+                    <div class="symptom-text">
+                    	<p>Reluctance to ear touching.</p>
+                    </div>
+                </div><!-- .symptom-box end -->
+                <p class="symptoms-bottom-head">Dog years are too short for recurring ear infections.</p>
+                <p class="bottom-text">The majority of dogs prescribed ear infection treatments have a recurrent history.<sup>1</sup> While certain breeds may be more prone to infections<sup>2</sup>, an underlying condition such as canine allergies could be present. Ear infections will persist if left untreated. Ask your veterinarian about the possibillity of allergies in your dog.</p>
+                <p><a href="#" class="canine-link">Learn more about canine allergies</a></p>
+            </div><!-- .container end -->
+        </section><!-- .signs-and-symptoms end --> 
+		 <section id="ask-vet" class="ask-vet pink-background"   >
+        	<div class="container">
+            	<p><span class="curved-box white-background">ask your veterinarian</span></p>
+                <p class="section-main-text">Quit chasing tails.</p>
+                <p class="section-sub-text">If your dog has experienced the above symptoms, he or she may have an ear infection. Ask your veterinarian about treating it with OSURNIA<sup>&reg;</sup> (florfenicol/terbinafine/betamethasone/acetate)</p>
+                <form class="summary-form">
+					<div class="infection-occurences">
+						<p>Approximately when was your dog's most recent ear infection? Can you remember when any other ear infections occured this past year?</p>
+							<div class="dropdown-container">
+								<div class="dropdown-list">
+									<select class="month-list">
+										<option selected disabled>Month</option>
+										<option>January</option>   
+										<option>February</option>
+										<option>March</option>   
+										<option>April</option>
+										<option>May</option>
+										<option>June</option>
+										<option>July</option>
+										<option>August</option>
+										<option>September</option>
+										<option>October</option>
+										<option>November</option>
+										<option>December</option>										
+									 </select> 
+									 <select class="day-list">
+										<option selected disabled>Day</option>
+										<option>1</option> 
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>		
+										<option>9</option>	
+										<option>10</option>		
+									 </select>
+									 <select class="year-list">
+										<option selected disabled>Year</option>
+										<option>2015</option>
+										<option>2016</option>                        
+									 </select>	 
+							   </div> <!-- .dropdown-list end -->                           
+							</div> <!-- .dropdown-container end--> 
+                        <p class="add-more-occurences">add more occurences</p>  
+                     </div><!-- .infection-occurences end-->
+				   <div class="infection-number">
+						<p>How many ear infections does your dog get each year?</p>
+						<div class="dropdown-container">
+							<select>
+								<option selected disabled>  </option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>                                    
+							</select>
+						</div><!-- .dropdown-container end -->
+				   </div><!-- .infection-number end -->
+				   <div class="signs-select-list">
+						<p>Signs & Symptoms I am noticing:</p>
+						<div class="select-list clearfix">                            	
+							<div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Reluctance to ear touching</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Redness around the ear</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Swelling around the ear</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Discharge from ears</p>
+							</div>
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Foul-smelling ears</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Crusted or scabby skin under the ear flap</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Ear scratching</p>
+							</div><!-- .chkbox-container end-->
+							 <div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Head shaking</p>
+							</div> <!-- .chkbox-container end-->                             
+						</div><!-- .select-list end -->
+				   </div><!-- .signs-select-list end -->
+				   <div class="seasons-select-list">
+						<p>Is there a season during which your dog struggles more with ear infections?</p>
+						<div class="select-list clearfix">                            	
+							<div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Spring</p>
+							</div><!-- .chkbox-container end-->
+							<div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Summer</p>
+							</div><!-- .chkbox-container end-->
+							<div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Fall</p>
+							</div><!-- .chkbox-container end-->
+							<div class="chkbox-container">
+								<img src="img/chkbox.png" alt="Checkbox"/>
+								<p>Winter</p>
+							</div><!-- .chkbox-container end-->                              
+						</div><!-- .select-list end-->
+				   </div><!-- .seasons-select-list end -->
+				   <div class="submit-container">
+					<span>submit for summary</span>
+				   </div>  <!-- .submit-container end -->                     
+                </form>
+				<div class="form-summary">
+					<p class="summary-head">Known Infections</p>
+					<p class="sum-dates">January 5th 2015, February 19th, 2015</p>
+					<p class="diamond-symbol">&#9670;</p>
+					<p class="summary-head">Gets about</p>
+					<p class="sum-infections">Less than four infections per year</p>
+					<p class="diamond-symbol">&#9670;</p>
+					<p class="summary-head">Signs & Symptoms</p>
+					<p class="sum-symptoms">Avoids petting, redness and crusted or scabby skin under the ear flap</p>
+					<p class="diamond-symbol">&#9670;</p>
+					<p class="summary-head">Gets more infections in</p>
+					<p class="sum-seasons">Spring</p>
+					<div class="summary-links clearfix">
+						<a href="#" class="email">Email summary </a>
+						<a href="#" class="print" >Print summary </a>
+					</div>					
+
+				</div>
+            </div><!-- .container end -->
+        </section><!-- .ask-vet end -->
+		<section id="for-vet" class="for-vet grey-background" >
+        	<div class="container">
+            	<p><span class="curved-box">For veterinarians</span></p>
+                <p class="section-main-text">Innovative otitis externa treatment with long-lasting efficacy.</p>
+                <img class="product-otic-image img-responsive" src="img/osurnia-product.png" alt="Osurnia Otic Gel"/>
+            	<div class="features-benefits-container clearfix">
+					<div class="benefits-container">
+						<p class="fb-heading">Key Benefits:</p>
+						<ul>
+							<li><span>Has proven efficacy out to 45 days, with just two doses per affected ear, dosed one week apart</span></li>
+							<li><span>Eliminates the need for pet ownersto clean their dog's ear for 45 days</span></li>
+							<li><span>Helps proper dosing with a premeasured 1 ml tube, regardless of dog's weight </span></li>
+						</ul>
+					</div><!-- .benefits-container end -->
+					<div class="features-container">
+						<p class="fb-heading">Key Features:</p>
+						 <ul>
+							<li><span>Gel formulation coats the surface of the ear canal with gentle massage<sup>3</sup></span></li>
+							<li><span>Alcohol-free</span></li>
+							<li><span>Soft, flexible tip is gentle on dog's ears</span></li>
+						</ul>
+					</div><!-- .features-container end -->
+                </div><!-- .features-benefits-container end -->
+				<p class="section-main-text color-pink">See our gel formulation at work:</p>
+				<figure>
+				<img src="img/gelFromulation.jpg" alt="Gel formulation process" class="img-responsive"/>
+				<figcaption>
+				Osurnia's innovative, adaptable gel formulation enables distribution through the ear canal as it spreads easily with gentle massage to the ear. The gel formula coats the surface of the ear canal, which then dissolves in the ear wax.<sup>3</sup> Active ingredients remain in the ear canal at high level for weeks.	
+				</figcaption>
+				</figure>                 
+            </div><!-- .container end -->
+        </section><!-- .for-vet end -->
+        <footer>
+            <div class="container">
+                <div class="footer-part-1">
+                    <p><sup>*</sup>OSURNIA<sup>&reg;</sup> is indicated for the treatment of otitis externa in dogs associated with susceptible strains of bacteria (Staphylocaccus pseudintermedius) and yeast (Malassezia pachydermatis).</p>
+                </div><!-- .footer-part-1 end -->
+                <div class="footer-part-2">
+                    <p class="safety-info">Important safety information</p>
+                    <p>OSURNIA (florfenicol/terbinafine/betamethasonen acetate) is for otic use only under veterinary supervision. Do not use in dogs with known tympanic perforation or a hypersensitivity to florfenicol, terbinafine or corticosteroids. Adverse reactions observed during clinical trials include vomiting, increased liver enzymes and transient loss of hearing.<br />See <u>OSURNIA product label</u> for full prescribing information or call 1-888-545-5973</p>
+                </div><!-- .footer-part-2 end -->
+                <div class="footer-part-3">
+                    <ul>
+                        <li>Kadence: Gauging Interest in a New OE Treatment Quantitative result September 2013</li>
+                        <li>Muller & Kirk's SMALL ANIMAL DERMATOLOGY | 6th Edition</li>
+                        <li>Elanco data on file</li>
+                    </ul>
+                </div><!-- .footer-part-3 end -->
+                <div class="footer-part-4">
+                    <p>&copy; 2016 Eli Lilly and Company, its subsidiaries or affiliates. USCACOSU00055<br />OSURNIA, Elanco and the diagonal 					bar are all trademarks owned or licensed by Eli Lilly and Company, its subsidiaries or affiliates.
+                    </p>
+                </div><!-- .footer-part-4 end -->
+                <div class="footer-part-5">
+                    <img class="osurnia-logo img-responsive" src="img/logo.png" alt="Osurnia" />
+                    <img src="img/elanco-logo.png" alt="Elanco" class="elanco-logo img-responsive" />
+                </div><!-- .footer-part-5 end -->
+            </div><!--.container end-->
+        </footer>
+	</body>
+</html>
